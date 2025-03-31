@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcuts icon"
+        href="https://cdn-icons-png.flaticon.com/512/1071/1071183.png">
+    <title>Tipo de Dados</title>
+</head>
+
+<body>
+    <script>
+        // Tipos de dados no JavaScript
+        let nome = "João";
+        document.write(`O nome é: ${nome} <br>`);
+        document.write(`O tipo de dado é: ${typeof nome} <br>`);
+
+        let idade = 20;
+        document.write(`A idade é : ${idade} <br>`);
+        document.write(`O tipo de dado é: ${typeof idade} <br>`);
+
+        let verdadeiro = true;
+        document.write(`O valor bool é: ${verdadeiro} <br>`);
+        document.write(`O tipo de dado é: ${typeof verdadeiro} <br>`);
+
+
+        let indefinido;
+        document.write(`O valor indefinido é: ${indefinido} <br>`);
+        document.write(`O tipo de dado é: ${typeof indefinido} <br>`);
+
+        let nulo = null;
+        document.write(`O valor indefinido é: ${nulo} <br>`);
+        document.write(`O tipo de dado é: ${typeof nulo} <br>`);
+
+        let objeto = { nome: nome, idade: idade };
+        document.write(`O valor indefinido é: ${objeto} <br>`);
+        document.write(`O tipo de dado é: ${typeof objeto} <br>`);
+
+        let lista = [nome, idade];
+        document.write(`O valor indefinido é: ${lista} <br>`);
+        document.write(`O tipo de dado é: ${typeof lista} <br>`);
+
+        // Funções não precisam ter retorno
+        function somaComRetorno(a, b) {
+            return a + b;
+        }
+
+        document.writeln(`Função de soma 1 + 2 ${somaComRetorno(1, 2)}<br>`);
+
+        function somaSemRetorno(a, b) {
+            document.writeln(`Função sem retorno de soma ${a} + ${b} ${a + b}<br>`);
+        }
+        somaSemRetorno(1,2);
+        // FUnção anônima, que é uma função que não tem um nome e é atribuida a uma variável
+        let somaAnonima = function (a, b) {
+            return a + b;
+        }
+
+        let somaArrow = (a,b) => {
+            return a+b;
+        }
+
+        // Função com retorno implicito
+        let somaImplicita = (a,b) => a+b;
+
+        let responde = () => 10+10;
+
+        let quadrado = a => a * a;
+        document.writeln(`O quadrado é: ${quadrado(12)} <br>`)
+
+    </script>
+</body>
+
+</html>

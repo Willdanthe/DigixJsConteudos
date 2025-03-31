@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Operador</title>
+
+    <link rel="shortcuts icon" href="https://cdn-icons-png.flaticon.com/512/1048/1048913.png">
+</head>
+<body>
+    <script>
+        // Trmos 3 tipos de declarações de variáveis
+        // var, let, const
+        // var é uma variável global, ou seja, pode ser acessada em qualquer parte do código
+        // let é uma variável local, ou seja, só pode ser acessada dentro do bloco onde foi declarada
+        //const é uma variável constante, ou seja, não pode ser alterada depois de declarada
+
+        let num1= Number(prompt("Digite um número"));
+        let num2= Number(prompt("Digite outro número: "));
+
+        let TotalSoma = num1 + num2;
+        let TotalSubtração = num1 - num2;
+        let TotalMultiplicação = num1 * num2;
+        let TotalDivisão = num1 / num2;
+        let TotalResto = num1 % num2;
+
+        document.write(`A soma de ${num1} + ${num2} é ${TotalSoma} <br>`); // Escreve no arquivo
+
+        // Alert é uma caixa de mensagem que aparece na tela
+
+        alert(`A soma de ${num1} + ${num2} é ${TotalSoma}`)
+        alert(`A soma de ${num1} - ${num2} é ${TotalSubtração}`)
+        alert(`A soma de ${num1} * ${num2} é ${TotalMultiplicação}`)
+        alert(`A soma de ${num1} / ${num2} é ${TotalDivisão}`)
+        alert(`A soma de ${num1} % ${num2} é ${TotalResto}`)
+    </script>
+</body>
+</html>

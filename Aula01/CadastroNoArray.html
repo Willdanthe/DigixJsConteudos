@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro em Array</title>
+</head>
+<body>
+    <!-- Criar um campo estilizado e fazer o crud salvando em um array -->
+    <form id="formulario">
+        <label for="" id="lElemento">Digite um Elemento: </label>
+        <input type="text" id="elemento">
+        <button type="submit">Add</button>
+    </form>
+    <br>
+    <table id="tabelaElementos">
+        <thead>
+            <tr>
+                <th>Lista de Elementos</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var array = [];
+        carregarElemento;
+        document.getElementById("formulario").addEventListener("submit", salvarElemento);
+    
+        function salvarElemento(event){
+            event.preventDefault();
+    
+            const elemento = document.getElementById("elemento").value;
+            array.push(elemento);
+            alert(array[0])
+            carregarElemento();
+        }
+    
+        function carregarElemento() {
+            const tbody = document.querySelector("#tabelaElementos tbody")
+    
+            tbody.innerHTML = "";
+    
+            // array.forEach((elemento) => document.write(`${elemento} <br>`));
+    
+            array.forEach(elemento => {
+                tbody.innerHTML += `
+                <tr>
+                    <td>
+                        ${elemento}
+                    </td>
+                </tr>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
