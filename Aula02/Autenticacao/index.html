@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Login com reCaptcha</h1>
+    <form id="login"> 
+        <input type="text" id="email" placeholder="Digite seu email">
+        <input type="password" id="password" placeholder="Digite sua senha">
+        <div class="g-recaptcha" data-sitekey="6LfW6AcrAAAAAGQ0YvNDSGaN3rRkpws9RrPdq0bV"></div>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <div id="resposta"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
