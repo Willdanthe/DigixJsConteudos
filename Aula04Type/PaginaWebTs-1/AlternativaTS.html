@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ts no Navegador</title>
+    <!-- Carrega e compila o Type -->
+    <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
+
+
+    <!-- Transforma em versões mais antigas -->
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js"></script>
+
+
+</head>
+
+<body>
+    <h1>Ts DIreto no nabegador</h1>
+
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    <button id="tbn" onclick="saudarTratado()">Enviar</button>
+
+    <script type="text/typescript">
+        alert("Ligando")
+        function saudarTratado(): void{
+            alert("Acessei a função")
+        const input = document.getElementById("nome");
+    
+    
+        if (input && input instanceof HTMLInputElement) {    
+            const nome = input.value.trim();
+        
+            if (nome === "") {
+                alert("Por favor, digite seu nome");
+                return;
+            }
+            alert(`Olá ${nome}, tudo bem?`);
+
+        } else {
+            alert("Elemento com o id 'nome' não encontrado");
+            
+        }
+    }
+    </script>
+
+    <!-- Transforma ele em Ts que foi construido, transformar ele em Js -->
+     <script>
+        const tsScript = document.querySelector('script[type="text/typescript"]');
+        const jsCode = ts.transpile(tsScript.textContent);
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.textContent = jsCode;
+        document.body.appendChild(script);
+     </script>
+
+</body>
+
+</html>

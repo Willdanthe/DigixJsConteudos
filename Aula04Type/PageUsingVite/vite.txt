@@ -1,0 +1,2 @@
+Comando usado parar criar o vite vanilla:
+npm create vite@latest teste -- -- template  vanilla-ts
