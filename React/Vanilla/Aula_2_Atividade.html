@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial;
+          padding: 20px;
+        }
+        .input {
+          margin-bottom: 15px;
+        }
+        .status {
+          margin-top: 10px;
+        }
+        .valid {
+          color: green;
+        }
+        .invalid {
+          color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Cadastro</h1>
+
+        <div class="input">
+            <label for="" >Email:</label>
+            <input type="email" id="email" required>
+            <label for="">Senha:</label>
+            <input type="password" id="password" required>
+            <div class="stats">
+                <p id="upper" class="invalid">❌ Letra maiúscula</p>
+                <p id="lower" class="invalid">❌ Letra minúscula</p>
+                <p id="number" class="invalid">❌ Número</p>
+                <p id="especial" class="invalid">❌ Caracteres Especial</p>
+                <p id="length" class="invalid">❌ Mínimo 8 caracteres</p>
+            </div>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </div>
+
+    <script>
+        const inputPassword = document.getElementById('password')
+
+        inputPassword.addEventListener('input', () => {
+            const password = inputPassword.value;
+
+            // Condicionando a senha
+            const isUpper = /[A-Z]/.test(password);
+            const isLower = /[a-z]/.test(password);
+            const isNumeric = /\d/.test(password);
+            const isEspecial = /[^A-Za-z0-9]/.test(password);
+            const passLength = password.length >= 8;
+
+            updateStats( "upper", isUpper )
+            updateStats( "lower", isLower )
+            updateStats( "number", isNumeric )
+            updateStats( "especial", isEspecial )
+            updateStats( "length", passLength )
+        });
+
+        function updateStats(id, condicion) {
+            const element = document.getElementById(id);
+
+            if (condicion) {
+                element.classList.remove("invalid");
+                element.classList.add("valid");
+                element.textContent = "✅ " + element.textContent.slice(2);
+            } else {
+                elemento.classList.remove("valid");
+                element.classList.add("invalid");
+                element.textContent = "❌ " + element.textContent.slice(2);
+            }
+        }
+
+        // Professor:
+        // const loginForm = document.getElementById('login-form');
+
+        // loginForm.addEventListener('submit', function(e) {
+        //     e.preventDefault(); // O preventDefault evita valores de dados padrão
+            
+        //     const email = document.getElementById('email').value;
+        //     const password = document.getElementById('password').value;
+        //     let isValid = true;
+
+        //     // Validação de email
+        //     if (!email.includes('@')) {
+        //         document.getElementById('email-error').textContent = 'Email inválido!';
+        //         isValid = false;
+        //     } else {
+        //         document.getElementById('email-error').textContent = '';
+        //     }
+
+        //     if (password.length < 8) {
+        //         document.getElementById('password-error').textContent = 'Senha muito Curta';
+        //         isValid = false;
+        //     } else {
+        //         document.getElementById('password-error').textContent = "";
+        //     }
+
+        //     if (isValid) {
+        //         alert(`Login com ${email}`)
+        //     }
+        // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Crossorigin é um atributo que indica que o recurso deve ser carregado com credenciais (cookies, cabeçalho http) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Ele que ai transformas as requisições Js -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        input,
+        button {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .tab-button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .task {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #eee;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const root = document.getElementById('root');
+        const { useState } = React;
+        function LoginForm() {
+            const { form, setForm } = useState({
+                email: '',
+                password: ''
+            })
+
+            const [errors, setErrors] = useState({}) // O estado desse componente é valor vazio
+
+            const validation = () => {
+                const newErrors = {} // Objeto para armazenar os erros
+
+                if (!form.email.include('@')) {
+                    newErrors.email = 'email Inválido!'
+                }
+
+                if (!form.password.length < 8) {
+                    newErrors.password = 'Senha muito Curta!'
+                }
+                setErrors(newErrors) // Atualiza os estados dos erros
+                return Object.keys(newErrors).length === 0; // Retornando vazio pois não houve erro
+
+
+            };
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+
+                if (validation()) {
+                    alert(`Login com: ${form.email}`);
+                }
+            };
+
+            return (
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input type="email"
+                        value={form.email}
+                        onChange={(e) => setForm({...form, email: e.target.value})} // Form é operador spread, que copia as propriedade 
+                        placeholder = "Email"
+                        />
+                    </div>
+                    <div>
+                        <input type="password"
+                        value={form.password}
+                        onChange={(e) => setForm({...form, password: e.target.value})} // Form é operador spread, que copia as propriedade 
+                        placeholder = "Senha"
+                        />
+                    </div>
+                    <button type=""></button>
+                </form>
+            )
+        };
+
+
+
+        function App() {
+            return (
+                <div className="conteiner">
+                </div>
+            )
+        }
+
+
+        ReactDOM.render(<App />, root)
+    </script>
+</body>
+
+</html>

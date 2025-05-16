@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Crossorigin é um atributo que indica que o recurso deve ser carregado com credenciais (cookies, cabeçalho http) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Ele que ai transformas as requisições Js -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+            background-color: rgb(22, 22, 22);
+        }
+        .componente{
+            border: 2px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: rgb(80, 80, 80);
+        }
+
+        .props-box {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Variáveis Globaix
+        const root = document.getElementById('root');
+        const {useState} = React;
+
+        // Componentes
+        function ListarTarefas() {
+            const [tarefa] = useState([ // hook
+                "Aprender React",
+                "Estudar componentes",
+                "Praticar JSX"
+            ]);
+
+            const [mostrarLista, setMostrarLista] = useState(true) // Para Lista ser visível
+
+            return (
+                <div className="componente">
+                    <h2>Lista Condicional</h2>
+                    <div className="props-box">
+                        <button onClick={() =>{setMostrarLista(!mostrarLista)}}>
+                         {mostrarLista ? "Esconder" : "Mostrar"} Lista </button>
+
+                         {mostrarLista && (
+                            <ul>
+                                
+                                {tarefa.map( (tarefas, index) => ( // O map percorre todo o array, listnado as tarefas que vamos atribuir na variável tarefa
+                                    <li key={index}> {tarefas} </li>
+                                ))}
+                            </ul>
+                         )}
+                    </div>    
+                </div>
+            )
+        }
+
+        function App()
+        {
+            return(
+                <div>
+                    <ListarTarefas />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />,root)
+    </script>
+</body>
+</html>
