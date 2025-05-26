@@ -1,4 +1,4 @@
-.card-produto {
+.cardProduto {
   background-color: #fff;
   border: 1px solid #555;
   border-radius: 10px;
@@ -9,23 +9,23 @@
   
 }
 
-.card-produto img {
+.cardProduto img {
   width: 100%;
   border-radius: 5px;
 }
 
-.card-produto h2 {
+.cardProduto h2 {
   font-size: 1.2rem;
   margin: 10px 0;
 }
 
-.card-produto .preco {
+.cardProduto .preco {
   color: green;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.card-produto .descricao {
+.cardProduto .descricao {
   font-size: 0.9rem;
   color: #555;
 }

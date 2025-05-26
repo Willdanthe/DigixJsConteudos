@@ -1,15 +1,18 @@
 import React from "react";
-import './CardProduto.css'
+import styles from "./CardProduto.module.css"
 
 const CardProduto = ({nome, preco, descricao, imagem}) => {
     return(
-        <div className="card-Produto">
+        <div className={styles.cardProduto}>
             <img src={imagem} alt={nome} width={300} height={300}/>
             <h2>{nome}</h2>
-            <p className="preco">R$ {preco.toFixed(2)}</p>
-            <p className="descricao">{descricao}</p>
+            <p className={styles.preco}>R$ {preco.toFixed(2)}</p>
+            <p className={styles.descricao}>{descricao}</p>
         </div>
     );
 }
 
 export default CardProduto;
+
+
+
