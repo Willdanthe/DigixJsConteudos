@@ -16,6 +16,7 @@ function UseEffectComponent(){
 
     return(
         <>
+        <p>{valor}</p>
             <input type="text" 
             value={valor}
             onChange={(e)=>setValor(e.target.value)}/>
