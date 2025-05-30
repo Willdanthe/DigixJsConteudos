@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function UseEffectExemplo3() {
+function UseEffectExemplo2() {
     const [contador, setContador] = useState(0);
     const [user, setUser] = useState(null);
 
@@ -37,34 +37,34 @@ function UseEffectExemplo3() {
     //     .then((res) => res.json())
     //     .then((json) => setUser(json));
 
-    // useEffect(() => {
-    //     fetch("https://api.github.com/users/willdanthe") // Veja o resultado em "network" do DevTools
-    //         .then((res) => res.json())
-    //         .then((json) => setUser(json));
-    // },[])
+    useEffect(() => {
+        fetch("https://api.github.com/users/willdanthe") // Veja o resultado em "network" do DevTools
+            .then((res) => res.json())
+            .then((json) => setUser(json));
+    },[])
 
 
-    // useEffect(() => {
+    useEffect(() => {
         
 
-    //     return () => {
+        return () => {
             
-    //     };
-    // }, []);
+        };
+    }, []);
 
     return (
         <>
-            <p>{contador}</p>
-            <div>
-                <button
-                    style={{ width: "500px", height: "500px" }}
-                    onClick={() => setContador((previous) => previous + 1)}
-                >
-                    Mais um
-                </button>
-            </div>
+            {user && (
+            <>
+                <h1>Perfil GitHub</h1>
+                <h2>{user.login}</h2>
+                <img src={user.avatar_url} alt="Foto perfil" />
+                <br />
+                <a href={user.html_url} target="_blank"> Link do Git</a>
+            </>
+            )}
         </>
     );
 }
 
-export default UseEffectExemplo3;
+export default UseEffectExemplo2;

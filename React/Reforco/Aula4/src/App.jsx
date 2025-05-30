@@ -4,6 +4,8 @@ import UseEffectComponent from './components/UseEffectComponent/UseEffectCompone
 import { useState } from 'react';
 import Condicional from './components/Condicional/Condicional.jsx';
 import UseEffectExemplo2 from './components/UseEffectExemplo2/UseEffectExemplo2.jsx'
+import UseEffectExemplo3 from './components/UseEffectExemplo3/UseEffectExemplo3.jsx';
+import UseRefExemplo from './components/UseRef/UseRef.jsx'
 
 function App() {
   const [isVisible, setIsVisible] = useState(true)
@@ -27,7 +29,18 @@ function App() {
           <h2>Exemplo 2</h2>
           <UseEffectExemplo2/>
         </div>
-          
+        <div className="marg">
+          <h2>Exemplo 3</h2>
+          <UseEffectExemplo3/>
+        </div>          
+      </div>
+
+      <div className="hooks">
+        <h1>UseRef</h1>
+        <div className="marg">
+          <h2>Exemplo 1</h2>
+          <UseRefExemplo/>
+        </div>
       </div>
 
       <div className='hooks'>
